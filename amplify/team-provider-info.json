@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tmdbapp-dev-a7997-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975050316309:role/amplify-tmdbapp-dev-a7997-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975050316309:role/amplify-tmdbapp-dev-a7997-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-tmdbapp-dev-a7997-deployment",
+      "UnauthRoleName": "amplify-tmdbapp-dev-a7997-unauthRole",
+      "StackName": "amplify-tmdbapp-dev-a7997",
+      "StackId": "arn:aws:cloudformation:eu-west-3:975050316309:stack/amplify-tmdbapp-dev-a7997/fa1b7460-0b05-11ef-810e-0a0bdb85c575",
+      "AmplifyAppId": "dasgqt8l9re3a"
+    },
+    "categories": {
+      "auth": {
+        "tmdbapp7acd463c": {}
+      }
+    }
+  }
+}
