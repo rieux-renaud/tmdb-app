@@ -6,25 +6,23 @@ import awsExports from "./aws-exports";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import UserList from "./pages/UserList";
-import {
-  Authenticator,
-  withAuthenticator,
-  Button,
-} from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(awsExports);
 
 function App() {
   return (
     <Authenticator>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/coup-de-coeur" element={<UserList />} />
-          <Route path="/a-propos" element={<About />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      {({ signOut, user }) => (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home signOut={signOut} user={user} />} />
+            <Route path="/coup-de-coeur" element={<UserList user={user} />} />
+            <Route path="/a-propos" element={<About />} />
+            <Route path="*" element={<Home signOut={signOut} user={user} />} />
+          </Routes>
+        </BrowserRouter>
+      )}
     </Authenticator>
   );
 }

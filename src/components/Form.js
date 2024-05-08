@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
-const Form = () => {
+const Form = ({ user }) => {
   const [moviesData, setMoviesData] = useState([]);
   const [search, setSearch] = useState("");
   const [sortGoodBad, setSortGoodBad] = useState(["null"]);
@@ -55,7 +55,7 @@ const Form = () => {
               }
             })
             .map((movie) => (
-              <Card key={movie.id} movie={movie} />
+              <Card key={movie.id} movie={movie} user={user} />
             ))}
         </div>
       </div>

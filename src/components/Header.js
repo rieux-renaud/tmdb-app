@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "@aws-amplify/ui-react/styles.css";
+import { Button } from "@aws-amplify/ui-react";
 
-const Header = () => {
+const Header = ({ signOut }) => {
   return (
     <div className="header">
       <nav>
@@ -27,6 +28,9 @@ const Header = () => {
           >
             <li>A propos</li>
           </NavLink>
+          <li>
+            <Button onClick={signOut}>Log Out</Button>
+          </li>
         </ul>
       </nav>
       <h1>React Movies</h1>

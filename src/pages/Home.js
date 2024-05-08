@@ -2,11 +2,11 @@ import React from "react";
 import Form from "../components/Form";
 import Header from "../components/Header";
 
-const Home = () => {
+const Home = ({ signOut, user }) => {
   return (
     <div className="home-page">
-      <Header />
-      <Form />
+      <Header signOut={signOut} />
+      <Form user={user} />
     </div>
   );
 };
