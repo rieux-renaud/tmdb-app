@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  SecretsManagerClient,
-  GetSecretValueCommand,
-} from "@aws-sdk/client-secrets-manager";
 
 const Card = ({ movie, user }) => {
   const dateFormatter = (date) => {

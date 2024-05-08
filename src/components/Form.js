@@ -8,31 +8,13 @@ const Form = ({ user }) => {
   const [sortGoodBad, setSortGoodBad] = useState(["null"]);
 
   useEffect(() => {
-    let API_KEY = getApiKey();
-    console.log(API_KEY);
+    let API_KEY = process.env.REACT_APP_API_KEY;
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&language=fr-FR`
       )
       .then((res) => setMoviesData(res.data.results));
   }, [search]);
-
-  async function getApiKey() {
-    const secret_name = "tmdb-api-key";
-    const client = new SecretsManagerClient({ region: "eu-west-3" });
-    let response;
-    try {
-      response = await client.send(
-        new GetSecretValueCommand({
-          SecretId: secret_name,
-          VersionStage: "AWSCURRENT", // VersionStage defaults to AWSCURRENT if unspecified
-        })
-      );
-    } catch (error) {
-      throw error;
-    }
-    return response.SecretString;
-  }
 
   return (
     <div className="form-component">

@@ -3,14 +3,19 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
+// import {
+//   SecretsManagerClient,
+//   GetSecretValueCommand,
+// } from "@aws-sdk/client-secrets-manager";
 
 const UserList = ({ user }) => {
-  let API_KEY = getApiKey();
   const [listData, setListData] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
+      const API_KEY = process.env.REACT_APP_API_KEY;
       const moviesId = await getLikedMovies(user.username);
+
       if (moviesId) {
         const uniqueMovies = new Set();
         for (let i = 0; i < moviesId.length; i++) {
@@ -27,23 +32,6 @@ const UserList = ({ user }) => {
     };
     fetchMovies();
   }, [user.username]);
-
-  async function getApiKey() {
-    const secret_name = "tmdb-api-key";
-    const client = new SecretsManagerClient({ region: "eu-west-3" });
-    let response;
-    try {
-      response = await client.send(
-        new GetSecretValueCommand({
-          SecretId: secret_name,
-          VersionStage: "AWSCURRENT", // VersionStage defaults to AWSCURRENT if unspecified
-        })
-      );
-    } catch (error) {
-      throw error;
-    }
-    return response.SecretString;
-  }
 
   async function getLikedMovies(userId) {
     const url = `https://0vgayvx2sd.execute-api.eu-west-3.amazonaws.com/prod/getlikedmovies?userId=${userId}`;
