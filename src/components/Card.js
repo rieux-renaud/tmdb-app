@@ -24,6 +24,8 @@ const Card = ({ movie, user }) => {
     } catch (error) {
       console.error("Error adding to storage:", error);
     }
+    alert("OK - This movie will now appear on the seen movies page");
+    window.location.href = "/";
   }
 
   return (
@@ -48,7 +50,7 @@ const Card = ({ movie, user }) => {
       {movie.overview ? <h3>Synopsys </h3> : ""}
       <p>{movie.overview}</p>
       <div className="btn" onClick={() => addStorage(user.username, movie.id)}>
-        Ajouter aux coups de coeur
+        Mark as seen
       </div>
     </div>
   );
