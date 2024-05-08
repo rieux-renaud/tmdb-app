@@ -1,22 +1,35 @@
-![tmdb-app](tmdb-app.png)
+![tmdb-app](src/assets/images/tmdb-app.png)
 
-# tpdb-app
+# Movie Tracker with TMDb Integration
 
-This project is a movie recommendation app that provides users with movie suggestions based on their preferences. It consists of a Spring Boot backend and a React frontend.
+This project, built during my CS studies, is a movie tracker app that empowers users to:
 
-### Features
+- Search and Explore Movies: Leverage The Movie Database (TMDb) to discover a vast collection of movies.
+- Track Your seen movies: Mark movies you've seen, creating a personalized record of your cinematic journey.
 
-- Search for movied: Users can search for movies by title, genre, or other criteria.
-- View movie details: Detailed information about each movie, including cast, release date, and ratings.
-- Get personalized movie recommendations: The app suggests movies based on the user’s viewing history and preferences.
+# Stack
 
-### Prerequisites
+![tmdb-app](src/assets/images/stack.png)
+
+- Frontend: React
+- Backend: Python (AWS Lambda functions)
+- Authentication: AWS Cognito
+- Database: AWS DynamoDB
+- CI/CD: AWS Amplify
+
+### Project Highlights:
+
+- User-friendly interface with login/signup functionality powered by AWS Cognito.
+- Integrates with The Movie Database (TMDb) API to provide detailed movie information.
+- Utilizes AWS DynamoDB for storing user data (seen movies).
+- Streamlined CI/CD pipeline managed by AWS Amplify.
+
+### Dev setup
 
 Before running the application, make sure you have the following installed:
 
-- Java 11 or higher: Required for the Spring Boot backend.
 - Node.js and npm: Needed for the React frontend.
-- The Movie Database (TMDb) API key: Obtain your API key from TMDb to fetch movie data
+- The Movie Database (TMDb) API key: Obtain your API key from TMDb to fetch movie data. Paste your key on a variable called "API_KEY" on a .env file.
 
 ### Installation
 

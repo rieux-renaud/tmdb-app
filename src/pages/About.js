@@ -7,24 +7,32 @@ const about = () => {
       <Header />
 
       <div className="row">
-        <div className="column">
-          <div className="card">
-            <img src={"./img/renaud.jpg"} alt="Renaud" />
-            <div className="container">
-              <h2>Renaud RIEUX</h2>
-              <p>
-                Ce site internet a été codé en React. Il s'agit d'un
-                entrainement effectué pour me familiariser avec ce Framework et
-                pour manipuler des API. Les données sont issues du site TMDB
-                "The Movie Database". Le style du site internet est inspiré des
-                modèles disponibles sur le site dribbble.com.
-              </p>
-              <p>Contact : rieux.renaud.94@gmail.com</p>
-              <p>
-                <button className="button">Contact</button>
-              </p>
-            </div>
-          </div>
+        {/* <div className="column"> */}
+        {/* <div className="card"> */}
+        <img src="../../../assets/images/tmdb-app.png" alt="TMDB App" />
+        <div className="container">
+          <h2>About me</h2>
+          <p>
+            Hi there! I'm Renaud, a passionate QA engineer with a keen interest
+            in building applications on AWS. This portfolio project is a movie
+            tracker web app built with React and AWS Amplify.
+          </p>
+          <p>
+            Users can search for detailed information about movies and add them
+            to their "seen movies" list for easy reference. The app utilizes
+            React components, state management, and user authentication features
+            of AWS Amplify. Additionally, I leveraged Cognito to manage my
+            users.
+          </p>
+          <p>
+            Feel free to browse the rest of my portfolio to learn more about my
+            skills and experience. You can also find the source code for this
+            project on my GitHub:
+            [https://github.com/rieux-renaud?tab=repositories].
+          </p>
+          <p>Contact : rieux.renaud.94@gmail.com</p>
+          {/* </div> */}
+          {/* </div> */}
         </div>
       </div>
     </div>

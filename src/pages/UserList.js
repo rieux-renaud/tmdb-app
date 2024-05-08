@@ -5,26 +5,45 @@ import Card from "../components/Card";
 import Header from "../components/Header";
 
 const UserList = ({ user }) => {
+  let API_KEY = getApiKey();
   const [listData, setListData] = useState([]);
+
   useEffect(() => {
     const fetchMovies = async () => {
       const moviesId = await getLikedMovies(user.username);
       if (moviesId) {
-        const uniqueMovies = new Set(); // Create a Set to store unique movies
+        const uniqueMovies = new Set();
         for (let i = 0; i < moviesId.length; i++) {
           const movieId = moviesId[i];
           const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${movieId}?api_key=c58ffbbfcec3d00f132dc417fb260fb0&language=fr-FR`
+            `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=fr-FR`
           );
-          uniqueMovies.add(response.data); // Add movie object to the Set
+          uniqueMovies.add(response.data);
         }
-        setListData([...uniqueMovies]); // Update listData with unique movies
+        setListData([...uniqueMovies]);
       } else {
         console.log("No liked movies found");
       }
     };
     fetchMovies();
   }, [user.username]);
+
+  async function getApiKey() {
+    const secret_name = "tmdb-api-key";
+    const client = new SecretsManagerClient({ region: "eu-west-3" });
+    let response;
+    try {
+      response = await client.send(
+        new GetSecretValueCommand({
+          SecretId: secret_name,
+          VersionStage: "AWSCURRENT", // VersionStage defaults to AWSCURRENT if unspecified
+        })
+      );
+    } catch (error) {
+      throw error;
+    }
+    return response.SecretString;
+  }
 
   async function getLikedMovies(userId) {
     const url = `https://0vgayvx2sd.execute-api.eu-west-3.amazonaws.com/prod/getlikedmovies?userId=${userId}`;

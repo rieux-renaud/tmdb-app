@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  SecretsManagerClient,
+  GetSecretValueCommand,
+} from "@aws-sdk/client-secrets-manager";
 
 const Card = ({ movie, user }) => {
   const dateFormatter = (date) => {
@@ -7,7 +11,6 @@ const Card = ({ movie, user }) => {
   };
 
   async function addStorage(userId, likedMovie) {
-    // const url = `${process.env.API_URL}/prod/addlikedmovie`;
     const url =
       "https://0vgayvx2sd.execute-api.eu-west-3.amazonaws.com/prod/addlikedmovie";
     try {

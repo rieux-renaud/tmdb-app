@@ -12,21 +12,21 @@ const Header = ({ signOut }) => {
             to="/"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
-            <li>Accueil</li>
+            <li>Home</li>
           </NavLink>
 
           <NavLink
             to="/coup-de-coeur"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
-            <li>Coup de coeur</li>
+            <li>My seen movies</li>
           </NavLink>
 
           <NavLink
             to="/a-propos"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
-            <li>A propos</li>
+            <li>About</li>
           </NavLink>
           <li>
             <Button onClick={signOut}>Log Out</Button>

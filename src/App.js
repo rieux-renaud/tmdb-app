@@ -9,7 +9,6 @@ import UserList from "./pages/UserList";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(awsExports);
-
 function App() {
   return (
     <Authenticator>
