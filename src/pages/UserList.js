@@ -3,17 +3,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
-// import {
-//   SecretsManagerClient,
-//   GetSecretValueCommand,
-// } from "@aws-sdk/client-secrets-manager";
 
 const UserList = ({ user }) => {
   const [listData, setListData] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const API_KEY = process.env.REACT_APP_API_KEY;
       const moviesId = await getLikedMovies(user.username);
 
       if (moviesId) {
@@ -21,7 +16,7 @@ const UserList = ({ user }) => {
         for (let i = 0; i < moviesId.length; i++) {
           const movieId = moviesId[i];
           const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=fr-FR`
+            `https://api.themoviedb.org/3/movie/${movieId}?api_key=ed82f4c18f2964e75117c2dc65e2161d&language=en-US`
           );
           uniqueMovies.add(response.data);
         }
