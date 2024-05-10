@@ -1,4 +1,4 @@
-![tmdb-app](src/assets/images/tmdb-app.png)
+![tmdb-app](https://tmdb-app-assets.s3.eu-west-3.amazonaws.com/tmdb-app.png)
 
 # Movie Tracker with TMDb Integration
 
@@ -9,7 +9,7 @@ This project, built during my CS studies, is a movie tracker app that empowers u
 
 # Stack
 
-![tmdb-app](src/assets/images/stack.png)
+![tmdb-app](https://tmdb-app-assets.s3.eu-west-3.amazonaws.com/stack.png)
 
 - Frontend: React
 - Backend: Python (AWS Lambda functions)

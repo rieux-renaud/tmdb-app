@@ -46,13 +46,13 @@ const UserList = ({ user }) => {
   return (
     <div className="user-list-page">
       <Header />
-      <h2>Coup de coeur</h2>
+      <h2>My seen movies</h2>
       <div className="result">
         {console.log(listData)}
         {listData.length > 0 ? (
           listData.map((movie) => <Card movie={movie} key={movie.id} />)
         ) : (
-          <h2>Aucun coup de coeur pour le moment</h2>
+          <h2>You have not seen movies yet</h2>
         )}
       </div>
     </div>
